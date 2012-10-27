@@ -33,7 +33,7 @@ class RedisManager(NoSqlManager):
         # Checking "type(value) is tuple" is a compromise
         # because Manager class can be instantiated outside container.py (See: session.py)
         #
-        if (expiretime is None) and (type(value) is tuple):
+        if (expiretime is None) and (isinstance(value, tuple)):
             expiretime = value[1]
 
         if expiretime:
